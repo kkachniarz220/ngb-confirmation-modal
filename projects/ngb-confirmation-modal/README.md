@@ -1,24 +1,82 @@
 # NgbConfirmationModal
+### Input
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
+| Input   |      Type      |  Default value  |
+|----------|:-------------:|------:|
+| [confirmButtonColor] |  text | primary |
+| [confirmButtonText] |    text   |   Confirm |
+| [cancelButtonColor] |  text | secondary |
+| [cancelButtonText] |    text   |   Cancel |
+| [openModalFlag] | boolean |    false |
 
-## Code scaffolding
+- `confirmButtonColor`: Bootstrap color of confirmation button.
+- `confirmButtonText`: Confirmation button text.
+- `cancelButtonColor`: Bootstrap color of cancel button.
+- `cancelButtonText`: Cancel button text.
+- `openModalFlag`: If you set to `true` modal will open.
+###### Available colors:
 
-Run `ng generate component component-name --project ngb-confirmation-modal` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngb-confirmation-modal`.
-> Note: Don't forget to add `--project ngb-confirmation-modal` or else it will be added to the default project in your `angular.json` file. 
+- primary
+- warning
+- secondary
+- danger
+- success
+- info
+- dark
+- light
+- muted
+- white
+<hr>
 
-## Build
+### Output
 
-Run `ng build ngb-confirmation-modal` to build the project. The build artifacts will be stored in the `dist/` directory.
+| Output   |      Returned type |
+|----------|:-------------:|
+| (closeResult) | boolean |
+ 
+- `Confirm button click`: returned value: `true`
+- `Cancel button click`: returned value: `false`
 
-## Publishing
 
-After building your library with `ng build ngb-confirmation-modal`, go to the dist folder `cd dist/ngb-confirmation-modal` and run `npm publish`.
+<hr>
 
-## Running unit tests
+#### Templates
 
-Run `ng test ngb-confirmation-modal` to execute the unit tests via [Karma](https://karma-runner.github.io).
+###### Modal header
+- confirmationModalHeader (default value: `Confirmation`)
+```html
+<ngb-confirmation-modal>
 
-## Further help
+  <ng-template ngbConfirmationModalHeader>
+    Confirmation about user delete
+  </ng-template>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+</ngb-confirmation-modal>
+```
+###### Modal body
+- confirmationModalBody (default value: `Are you sure?`)
+```html
+<ngb-confirmation-modal>
+
+  <ng-template ngbConfirmationModalBody>
+    Are you sure you want to delete a user?
+  </ng-template>
+
+</ngb-confirmation-modal>
+```
+
+###### Finaly example:
+```html
+<ngb-confirmation-modal (closeResult)="onConfirmationModalResult($event)" [openModalFlag]="openConfirmationModal">
+
+  <ng-template ngbConfirmationModalHeader>
+    Confirmation about user delete
+  </ng-template>
+
+  <ng-template ngbConfirmationModalBody>
+    {{ 'Are you sure you want to delete a user?' | translate }}
+  </ng-template>
+
+</ngb-confirmation-modal>
+```
+    

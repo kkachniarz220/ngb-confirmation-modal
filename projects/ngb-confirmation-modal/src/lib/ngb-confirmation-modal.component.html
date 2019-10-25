@@ -12,7 +12,7 @@
     <button
       class="close"
       type="button"
-      (click)="modal.close() || emitResult(false)"
+      (click)="modal.close(false)"
     >
       &times;
     </button>
@@ -29,14 +29,14 @@
     <button
       [ngClass]="'btn-outline-' + cancelButtonColor"
       class="btn mr-2"
-      (click)="modal.close() || emitResult(false)"
+      (click)="modal.close(false)"
     >
       {{ cancelButtonText }}
     </button>
     <button
       [ngClass]="'btn-outline-' + confirmButtonColor"
       class="btn"
-      (click)="emitResult(true)"
+      (click)="modal.close(true)"
     >
       {{ confirmButtonText }}
     </button>

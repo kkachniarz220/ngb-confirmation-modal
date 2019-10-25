@@ -37,11 +37,14 @@ export class NgbConfirmationModalComponent implements OnInit {
   }
 
   openModal() {
-    this.confirmationModalRef = this.modalService.open(this.confirmationModalElemRef);
+    this.confirmationModalRef = this.modalService.open(this.confirmationModalElemRef, {
+      backdrop: 'static',
+      keyboard: false,
+    });
+    this.watchCloseModalResult();
   }
 
-  emitResult(result: boolean) {
-    this.confirmationModalRef.close();
-    this.closeResult.emit(result);
+  watchCloseModalResult() {
+    this.confirmationModalRef.result.then(result => this.closeResult.emit(result));
   }
 }
