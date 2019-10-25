@@ -5,7 +5,7 @@ import { Directive, Input, TemplateRef } from '@angular/core';
 })
 export class NgbConfirmationModalBodyDirective {
 
-  @Input() confirmationBody: string;
+  @Input() confirmationMessage: string;
 
   constructor(
     public templateRef: TemplateRef<any>,

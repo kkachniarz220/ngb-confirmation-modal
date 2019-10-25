@@ -1,9 +1,9 @@
 import { Directive, Input, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[ngbModalConfirmationModalHeader]'
+  selector: '[ngbConfirmationModalHeader]'
 })
-export class NgbModalConfirmationModalHeaderDirective {
+export class NgbConfirmationModalHeaderDirective {
 
   @Input() confirmationMessage: string;
 

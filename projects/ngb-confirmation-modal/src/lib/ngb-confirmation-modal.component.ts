@@ -1,7 +1,7 @@
 import { Component, ContentChild, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { NgbConfirmationModalBodyDirective } from './directives/modal-body/ngb-confirmation-modal-body.directive';
-import { NgbModalConfirmationModalHeaderDirective } from './directives/modal-header/ngb-modal-confirmation-modal-header.directive';
+import { NgbConfirmationModalHeaderDirective } from './directives/modal-header/ngb-confirmation-modal-header.directive';
 
 @Component({
   selector: 'ngb-confirmation-modal',
@@ -22,7 +22,7 @@ export class NgbConfirmationModalComponent implements OnInit {
     }
   }
 
-  @ContentChild(NgbModalConfirmationModalHeaderDirective, { static: true }) confirmationHeader: NgbModalConfirmationModalHeaderDirective;
+  @ContentChild(NgbConfirmationModalHeaderDirective, { static: true }) confirmationHeader: NgbConfirmationModalHeaderDirective;
   @ContentChild(NgbConfirmationModalBodyDirective, { static: true }) confirmationBody: NgbConfirmationModalBodyDirective;
 
   @ViewChild('confirmationModalElemRef', { static: true }) confirmationModalElemRef: ElementRef;
