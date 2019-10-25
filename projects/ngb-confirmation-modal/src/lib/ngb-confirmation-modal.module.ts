@@ -17,8 +17,6 @@ import { NgbModalConfirmationModalHeaderDirective } from './directives/modal-hea
   ],
   exports: [
     NgbConfirmationModalComponent,
-    NgbModalConfirmationModalHeaderDirective,
-    NgbConfirmationModalBodyDirective
   ]
 })
 export class NgbConfirmationModalModule {}

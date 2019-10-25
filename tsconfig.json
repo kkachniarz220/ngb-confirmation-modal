@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngb-confirmation-modal": [
+        "dist/ngb-confirmation-modal"
+      ],
+      "ngb-confirmation-modal/*": [
+        "dist/ngb-confirmation-modal/*"
+      ]
+    }
   }
 }

@@ -20,24 +20,25 @@
 
   <div class="modal-body">
     <ng-container *ngIf="!confirmationBody">
-      'Are you sure?'
+      Are you sure?
     </ng-container>
     <ng-container *ngTemplateOutlet="confirmationBody?.templateRef"></ng-container>
   </div>
 
   <div class="modal-footer">
     <button
-      class="btn btn-outline-secondary mr-2"
+      [ngClass]="'btn-outline-' + cancelButtonColor"
+      class="btn mr-2"
       (click)="modal.close() || emitResult(false)"
     >
-      Cancel
+      {{ cancelButtonText }}
     </button>
     <button
       [ngClass]="'btn-outline-' + confirmButtonColor"
       class="btn"
       (click)="emitResult(true)"
-    >
-      confirmButtonText
+    >git a
+      {{ confirmButtonText }}
     </button>
   </div>
 </ng-template>

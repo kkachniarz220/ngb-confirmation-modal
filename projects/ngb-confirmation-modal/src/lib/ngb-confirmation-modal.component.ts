@@ -4,14 +4,17 @@ import { NgbConfirmationModalBodyDirective } from './directives/modal-body/ngb-c
 import { NgbModalConfirmationModalHeaderDirective } from './directives/modal-header/ngb-modal-confirmation-modal-header.directive';
 
 @Component({
-  selector: 'lib-ngb-confirmation-modal',
+  selector: 'ngb-confirmation-modal',
   templateUrl: 'ngb-confirmation-modal.component.html',
 })
 export class NgbConfirmationModalComponent implements OnInit {
 
   @Output() closeResult = new EventEmitter();
+
   @Input() confirmButtonColor = 'primary';
   @Input() confirmButtonText = 'Confirm';
+  @Input() cancelButtonText = 'Cancel';
+  @Input() cancelButtonColor = 'secondary';
 
   @Input('openModalFlag') set openModalSet(value: boolean) {
     if (value) {

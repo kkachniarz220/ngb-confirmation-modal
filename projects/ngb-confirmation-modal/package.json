@@ -2,6 +2,7 @@
   "name": "ngb-confirmation-modal",
   "version": "0.0.1",
   "author": "Kachniarz Krzysztof",
+  "repository": "https://github.com/kkachniarz220/ngb-confirmation-modal",
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.0.3",
