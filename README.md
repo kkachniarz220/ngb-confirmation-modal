@@ -1,27 +1,82 @@
-# ConfirmationModal
+# NgbConfirmationModal
+### Input
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
+| Input   |      Type      |  Default value  |
+|----------|:-------------:|------:|
+| [confirmButtonColor] |  text | primary |
+| [confirmButtonText] |    text   |   Confirm |
+| [cancelButtonColor] |  text | secondary |
+| [cancelButtonText] |    text   |   Cancel |
+| [openModalFlag] | boolean |    false |
 
-## Development server
+- `confirmButtonColor`: Bootstrap color of confirmation button.
+- `confirmButtonText`: Confirmation button text.
+- `cancelButtonColor`: Bootstrap color of cancel button.
+- `cancelButtonText`: Cancel button text.
+- `openModalFlag`: If you set to `true` modal will open.
+###### Available colors:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- primary
+- warning
+- secondary
+- danger
+- success
+- info
+- dark
+- light
+- muted
+- white
+<hr>
 
-## Code scaffolding
+### Output
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+| Output   |      Returned type |
+|----------|:-------------:|
+| (closeResult) | boolean |
+ 
+- `Confirm button click`: returned value: `true`
+- `Cancel button click`: returned value: `false`
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+<hr>
 
-## Running unit tests
+#### Templates
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+###### Modal header
+- confirmationModalHeader (default value: `Confirmation`)
+```html
+<ngb-confirmation-modal>
 
-## Running end-to-end tests
+  <ng-template ngbConfirmationModalHeader>
+    Confirmation about user delete
+  </ng-template>
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+</ngb-confirmation-modal>
+```
+###### Modal body
+- confirmationModalBody (default value: `Are you sure?`)
+```html
+<ngb-confirmation-modal>
 
-## Further help
+  <ng-template ngbConfirmationModalBody>
+    Are you sure you want to delete a user?
+  </ng-template>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+</ngb-confirmation-modal>
+```
+
+###### Finaly example:
+```html
+<ngb-confirmation-modal (closeResult)="onConfirmationModalResult($event)" [openModalFlag]="openConfirmationModal">
+
+  <ng-template ngbConfirmationModalHeader>
+    Confirmation about user delete
+  </ng-template>
+
+  <ng-template ngbConfirmationModalBody>
+    {{ 'Are you sure you want to delete a user?' | translate }}
+  </ng-template>
+
+</ngb-confirmation-modal>
+```
+    
