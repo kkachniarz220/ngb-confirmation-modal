@@ -1,0 +1,43 @@
+<h3 class="text-warning">
+</h3>
+
+<ng-template #confirmationModalElemRef let-modal let-c="close">
+  <div class="modal-header">
+    <ng-container *ngIf="!confirmationHeader">
+      <h4 class="modal-title">Confirmation</h4>
+    </ng-container>
+    <h4>
+      <ng-container *ngTemplateOutlet="confirmationHeader?.templateRef"></ng-container>
+    </h4>
+    <button
+      class="close"
+      type="button"
+      (click)="modal.close() || emitResult(false)"
+    >
+      &times;
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <ng-container *ngIf="!confirmationBody">
+      'Are you sure?'
+    </ng-container>
+    <ng-container *ngTemplateOutlet="confirmationBody?.templateRef"></ng-container>
+  </div>
+
+  <div class="modal-footer">
+    <button
+      class="btn btn-outline-secondary mr-2"
+      (click)="modal.close() || emitResult(false)"
+    >
+      Cancel
+    </button>
+    <button
+      [ngClass]="'btn-outline-' + confirmButtonColor"
+      class="btn"
+      (click)="emitResult(true)"
+    >
+      confirmButtonText
+    </button>
+  </div>
+</ng-template>
