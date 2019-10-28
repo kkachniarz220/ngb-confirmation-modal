@@ -1,27 +1,99 @@
-# ConfirmationModal
+# NgbConfirmationModal
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.2.
+### Installation
 
-## Development server
+```
+npm install ngb-confirmation-modal
+```
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```typescript
+import { NgbConfirmationModalModule } from 'ngb-confirmation-modal';
 
-## Code scaffolding
+  imports: [
+    NgbConfirmationModalModule,
+  ],
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
 
-## Build
+### Basic usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```html
+<ngb-confirmation-modal (closeResult)="onConfirmationModalResult($event)" [openModalFlag]="openConfirmationModal">
 
-## Running unit tests
+  <ng-template ngbConfirmationModalHeader>
+    Modal header
+  </ng-template>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+  <ng-template ngbConfirmationModalBody>
+    Modal body
+  </ng-template>
 
-## Running end-to-end tests
+</ngb-confirmation-modal>
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Input
 
-## Further help
+| Input   |      Type      |  Default value  |
+|----------|:-------------:|------:|
+| [confirmButtonColor] |  text | primary |
+| [confirmButtonText] |    text   |   Confirm |
+| [cancelButtonColor] |  text | secondary |
+| [cancelButtonText] |    text   |   Cancel |
+| [openModalFlag] | boolean |    false |
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- `confirmButtonColor`: Bootstrap color of confirmation button.
+- `confirmButtonText`: Confirmation button text.
+- `cancelButtonColor`: Bootstrap color of cancel button.
+- `cancelButtonText`: Cancel button text.
+- `openModalFlag`: If you set to `true` modal will open.
+###### Available colors:
+
+- primary
+- warning
+- secondary
+- danger
+- success
+- info
+- dark
+- light
+- muted
+- white
+<hr>
+
+### Output
+
+| Output   |      Returned type |
+|----------|:-------------:|
+| (closeResult) | boolean |
+ 
+- `Confirm button click`: returned value: `true`
+- `Cancel button click`: returned value: `false`
+
+
+<hr>
+
+#### Templates
+
+###### Modal header
+- confirmationModalHeader (default value: `Confirmation`)
+```html
+<ngb-confirmation-modal>
+
+  <ng-template ngbConfirmationModalHeader>
+    Confirmation about user delete
+  </ng-template>
+
+</ngb-confirmation-modal>
+```
+###### Modal body
+- confirmationModalBody (default value: `Are you sure?`)
+```html
+<ngb-confirmation-modal>
+
+  <ng-template ngbConfirmationModalBody>
+    Are you sure you want to delete a user?
+  </ng-template>
+
+</ngb-confirmation-modal>
+```
+    

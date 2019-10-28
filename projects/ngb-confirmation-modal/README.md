@@ -1,4 +1,36 @@
 # NgbConfirmationModal
+
+### Installation
+
+```
+npm install ngb-confirmation-modal
+```
+
+```typescript
+import { NgbConfirmationModalModule } from 'ngb-confirmation-modal';
+
+  imports: [
+    NgbConfirmationModalModule,
+  ],
+
+```
+
+### Basic usage
+
+```html
+<ngb-confirmation-modal (closeResult)="onConfirmationModalResult($event)" [openModalFlag]="openConfirmationModal">
+
+  <ng-template ngbConfirmationModalHeader>
+    Modal header
+  </ng-template>
+
+  <ng-template ngbConfirmationModalBody>
+    Modal body
+  </ng-template>
+
+</ngb-confirmation-modal>
+```
+
 ### Input
 
 | Input   |      Type      |  Default value  |
@@ -60,21 +92,6 @@
 
   <ng-template ngbConfirmationModalBody>
     Are you sure you want to delete a user?
-  </ng-template>
-
-</ngb-confirmation-modal>
-```
-
-###### Finaly example:
-```html
-<ngb-confirmation-modal (closeResult)="onConfirmationModalResult($event)" [openModalFlag]="openConfirmationModal">
-
-  <ng-template ngbConfirmationModalHeader>
-    Confirmation about user delete
-  </ng-template>
-
-  <ng-template ngbConfirmationModalBody>
-    {{ 'Are you sure you want to delete a user?' | translate }}
   </ng-template>
 
 </ngb-confirmation-modal>
